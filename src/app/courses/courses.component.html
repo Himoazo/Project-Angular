@@ -4,7 +4,15 @@
     <label for="serach">Sök kurser</label>
     <input type="text" id="serach" [(ngModel)]="searchCourse" (input)="courseSearch()">
  </div>
-
+ <mat-form-field>
+    <mat-label>Select an option</mat-label>
+    <mat-select (selectionChange)="selectedSub()" [(value)]="selected">
+     <!--  <mat-option>None</mat-option> -->
+      <mat-option *ngFor="let subject of subjects()" value="{{subject}}">{{subject}}</mat-option>
+      <!-- <mat-option value="option2">Option 2</mat-option>
+      <mat-option value="option3">Option 3</mat-option> -->
+    </mat-select>
+  </mat-form-field>
 <table>
     <thead id="head">
         <tr>
