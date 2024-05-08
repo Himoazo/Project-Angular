@@ -1,6 +1,28 @@
 <h1>Courses</h1>
-<ul>
-    <li *ngFor="let course of courses">
-        {{course.courseCode}}: {{course.courseName}}
-    </li>
-</ul>
+
+<div id="form">
+    <label for="serach">Sök kurser</label>
+    <input type="text" id="serach" [(ngModel)]="searchCourse" (input)="courseSearch()">
+ </div>
+
+<table>
+    <thead id="head">
+        <tr>
+            <th (click)="sortByCode()">Kurskod </th>
+            <th (click)="sortByName()">Kursnamn </th>
+            <th (click)="sortByPoints()">Poäng</th>
+            <th (click)="sortBySubject()">Ämne</th>
+            <th>Kursplan</th>
+        </tr>
+    </thead>
+    <tbody id="data">
+       <tr *ngFor="let course of searchedCourses">
+          <td> {{course.courseCode}} </td>
+          <td> {{course.courseName}} </td>
+          <td> {{course.points}} </td>
+          <td> {{course.subject}} </td>
+          <td> <a [href]="course.syllabus">Kursplan</a></td>
+       </tr>
+    </tbody>
+ </table>
+
