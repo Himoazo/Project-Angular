@@ -31,7 +31,7 @@ export class CoursesComponent {
 
   //Sökfunktionen
   courseSearch():void{
-    this.searchedCourses = this.searchedCourses.filter((course)=>
+    this.searchedCourses = this.courses.filter((course)=>
       course.courseCode.toLowerCase().includes(this.searchCourse.toLowerCase()) ||
       course.courseName.toLowerCase().includes(this.searchCourse.toLowerCase())
     );
@@ -50,6 +50,8 @@ export class CoursesComponent {
   selectedSub(): void{
     if(this.selected){
       this.searchedCourses = this.courses.filter(course => course.subject === this.selected);
+    }else if(this.selected == ""){
+      this.searchedCourses = this.courses;
     }
   }
   //Sorteringsmetoder
