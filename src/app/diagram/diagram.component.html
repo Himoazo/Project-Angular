@@ -10,13 +10,14 @@
         </tr>
     </thead>
     <tbody id="data">
-       <tr *ngFor="let course of getSavedCourses(); index as i">
+       <tr *ngFor="let course of getSavedCourses()">
           <td> {{course.courseCode}} </td>
           <td> {{course.courseName}} </td>
           <td> {{course.points}} </td>
           <td> {{course.subject}} </td>
           <td> <a [href]="course.syllabus">Kursplan</a></td>
-          <td><button (click)="deleteCourse(i)">Ta bort</button></td>
+          <td><button (click)="deleteCourse(course.courseCode)">Ta bort</button></td>
        </tr>
     </tbody>
  </table>
+ 

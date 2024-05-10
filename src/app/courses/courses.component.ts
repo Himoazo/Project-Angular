@@ -92,8 +92,15 @@ export class CoursesComponent {
       this.ascending = !this.ascending;
     }
   //Save course to localStorage
+  existingCourse: string = "";
   save(course: Course):void{
-    this.saveCourse.courseArr.push(course);
+    //Check to prevent dublicates
+    if(this.saveCourse.courseArr.some((item)=> item.courseCode === course.courseCode)){
+      this.existingCourse = "Denna kurs är redan sparad";
+      console.log(this.existingCourse);
+    }else{
+      this.saveCourse.courseArr.push(course);
     this.saveCourse.saveCourse("savedCourses", JSON.stringify(this.saveCourse.courseArr));
+    }
   }
 }

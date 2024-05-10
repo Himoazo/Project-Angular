@@ -13,18 +13,25 @@ import { CommonModule } from '@angular/common';
 export class DiagramComponent {
 
   constructor(private saveCourse: SaveCourseService){}
-
-  //Save course
-  save(course: Course):void{
-    this.saveCourse.courseArr.push(course);
-    this.saveCourse.saveCourse("savedCourses", JSON.stringify(this.saveCourse.courseArr));
-  }
+courseArr: Course [] = [];
+  /* ngOnInit() {
+    this.getSavedCourses();
+  } */
   //Get saved courses
+  
   getSavedCourses() :Course[] {
-    return this.saveCourse.getCourses("savedCourses");
+    this.courseArr = this.saveCourse.getCourses("savedCourses");
+    return this.courseArr;
   }
+  /* points : number = 0;
+  pointSum():void{
+    for(let course of this.courseArr){
+      this.points =+ course.points;
+    }
+  } */
   //Delete a course
-  deleteCourse(index: number):void{
-    this.saveCourse.clearCourse(index);
+  deleteCourse(code: string):void{
+    console.log(code);
+    this.saveCourse.clearCourse(code);
   }
 }
