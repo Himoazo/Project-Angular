@@ -25,8 +25,9 @@ export class SaveCourseService {
   }
 
   //Delete course from LS
-  clearCourse(key: string) :void {
-    localStorage.removeItem(key);
+  clearCourse(index: number) :void {
+    this.courseArr.splice(index, 1);
+    localStorage.setItem("savedCourses", JSON.stringify(this.courseArr));
   }
 
   //Delete all saved courses

@@ -6,17 +6,17 @@
             <th>Poäng</th>
             <th>Ämne</th>
             <th>Kursplan</th>
-            <th>Lägg till</th>
+            <th>Ta bort</th>
         </tr>
     </thead>
     <tbody id="data">
-       <tr *ngFor="let course of getSavedCourses()">
+       <tr *ngFor="let course of getSavedCourses(); index as i">
           <td> {{course.courseCode}} </td>
           <td> {{course.courseName}} </td>
           <td> {{course.points}} </td>
           <td> {{course.subject}} </td>
           <td> <a [href]="course.syllabus">Kursplan</a></td>
-          <td><button (click)="save(course)">Lägg till</button></td>
+          <td><button (click)="deleteCourse(i)">Ta bort</button></td>
        </tr>
     </tbody>
  </table>

@@ -23,4 +23,8 @@ export class DiagramComponent {
   getSavedCourses() :Course[] {
     return this.saveCourse.getCourses("savedCourses");
   }
+  //Delete a course
+  deleteCourse(index: number):void{
+    this.saveCourse.clearCourse(index);
+  }
 }
