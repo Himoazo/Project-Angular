@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Course } from '../model/course';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SaveCourseService {
-
+  courseArr: Course[] = [];
   constructor() { }
 
   //Save in localStorage
@@ -13,8 +14,14 @@ export class SaveCourseService {
   }
 
   //Retrive data from LS
-  getCourses(key: string): string | null {
-    return localStorage.getItem(key);
+  getCourses(key: string): Course[] {
+    const storedData = localStorage.getItem(key);
+    if (storedData) {
+      return JSON.parse(storedData) as Course[]; 
+      
+    }else{
+      return [];
+    }
   }
 
   //Delete course from LS

@@ -4,6 +4,7 @@ import { FetchcoursesService } from '../services/fetchcourses.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
+import { SaveCourseService } from '../services/save-course.service';
 /* import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'; */
 @Component({
@@ -20,7 +21,7 @@ export class CoursesComponent {
   ascending: boolean = true;
   selected = '';
 
-  constructor(private courseservice: FetchcoursesService){}
+  constructor(private courseservice: FetchcoursesService, private saveCourse: SaveCourseService){}
 
   ngOnInit(){
     this.courseservice.getCourses().subscribe(data =>{
@@ -90,5 +91,9 @@ export class CoursesComponent {
       }
       this.ascending = !this.ascending;
     }
-
+  //Save course to localStorage
+  save(course: Course):void{
+    this.saveCourse.courseArr.push(course);
+    this.saveCourse.saveCourse("savedCourses", JSON.stringify(this.saveCourse.courseArr));
+  }
 }

@@ -20,6 +20,7 @@
             <th (click)="sortByPoints()">Poäng</th>
             <th (click)="sortBySubject()">Ämne</th>
             <th>Kursplan</th>
+            <th>Lägg till</th>
         </tr>
     </thead>
     <tbody id="data">
@@ -29,6 +30,7 @@
           <td> {{course.points}} </td>
           <td> {{course.subject}} </td>
           <td> <a [href]="course.syllabus">Kursplan</a></td>
+          <td><button (click)="save(course)">Lägg till</button></td>
        </tr>
     </tbody>
  </table>
