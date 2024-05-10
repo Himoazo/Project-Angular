@@ -11,27 +11,27 @@ import { CommonModule } from '@angular/common';
   styleUrl: './diagram.component.scss'
 })
 export class DiagramComponent {
-
-  constructor(private saveCourse: SaveCourseService){}
 courseArr: Course [] = [];
-  /* ngOnInit() {
+points : number = 0;
+
+constructor(private saveCourse: SaveCourseService){}
+
+  ngOnInit() {
     this.getSavedCourses();
-  } */
+  }
   //Get saved courses
   
   getSavedCourses() :Course[] {
     this.courseArr = this.saveCourse.getCourses("savedCourses");
+    this.pointSum();
     return this.courseArr;
   }
-  /* points : number = 0;
+  
   pointSum():void{
-    for(let course of this.courseArr){
-      this.points =+ course.points;
-    }
-  } */
+    this.points = this.courseArr.reduce((total, course) => total + course.points, 0);
+  }
   //Delete a course
   deleteCourse(code: string):void{
-    console.log(code);
     this.saveCourse.clearCourse(code);
   }
 }
