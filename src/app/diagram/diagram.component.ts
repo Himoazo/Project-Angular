@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SaveCourseService } from '../services/save-course.service';
 import { Course } from '../model/course';
 import { CommonModule } from '@angular/common';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-diagram',
   standalone: true,
@@ -14,7 +14,7 @@ export class DiagramComponent {
 courseArr: Course [] = [];
 points : number = 0;
 
-constructor(private saveCourse: SaveCourseService){}
+constructor(private saveCourse: SaveCourseService, private _snackBar: MatSnackBar){}
 
   ngOnInit() {
     this.courseArr = this.getSavedCourses();
@@ -35,4 +35,13 @@ constructor(private saveCourse: SaveCourseService){}
     this.saveCourse.clearCourse(code);
     this.getSavedCourses();
   }
+
+  //Snackbar
+ durationInSeconds = 5000;
+ openSnackBar(message: string) {
+  this._snackBar.open(message + " har tagits bort", "X", {
+    duration: this.durationInSeconds
+  });
+}
+  
 }

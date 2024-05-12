@@ -16,7 +16,7 @@
           <td> {{course.points}}</td>
           <td> {{course.subject}} </td>
           <td> <a [href]="course.syllabus">Kursplan</a></td>
-          <td><button (click)="deleteCourse(course.courseCode)">Ta bort</button></td>
+          <td><button (click)="deleteCourse(course.courseCode); openSnackBar(course.courseName)">Ta bort</button></td>
        </tr>
     </tbody>
  </table>
