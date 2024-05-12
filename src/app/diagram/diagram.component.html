@@ -13,13 +13,13 @@
        <tr *ngFor="let course of getSavedCourses()">
           <td> {{course.courseCode}} </td>
           <td> {{course.courseName}} </td>
-          <td> {{course.points}} </td>
+          <td> {{course.points}}</td>
           <td> {{course.subject}} </td>
           <td> <a [href]="course.syllabus">Kursplan</a></td>
           <td><button (click)="deleteCourse(course.courseCode)">Ta bort</button></td>
        </tr>
     </tbody>
  </table>
- 
+
  <p>Antal kurser: {{courseArr.length}} stycken</p>
  <p>Totalt antalpoäng: {{points}} hp</p> 
