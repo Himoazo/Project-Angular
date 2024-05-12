@@ -75,6 +75,7 @@ export class CoursesComponent {
       this.searchedCourses.sort((a, b)=> (a.courseName < b.courseName)? 1 : -1);
     }
       this.ascending = !this.ascending;
+      this.initializePaginator();
   }
 
   sortByCode():void{
@@ -84,6 +85,7 @@ export class CoursesComponent {
       this.searchedCourses.sort((a, b)=> (a.courseCode < b.courseCode)? 1 : -1);
     }
       this.ascending = !this.ascending;
+      this.initializePaginator();
   }
 
   sortByPoints():void{
@@ -93,6 +95,7 @@ export class CoursesComponent {
       this.searchedCourses.sort((a, b)=> (a.points < b.points) ? 1 : -1);
     }
       this.ascending = !this.ascending;
+      this.initializePaginator();
     }
 
     sortBySubject():void{
@@ -102,6 +105,7 @@ export class CoursesComponent {
         this.searchedCourses.sort((a, b)=> (a.subject < b.subject) ? 1 : -1);
       }
       this.ascending = !this.ascending;
+      this.initializePaginator();
     }
   //Save course to localStorage
   existingCourse: string = "";

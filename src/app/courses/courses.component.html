@@ -16,19 +16,19 @@
    <div>
    <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="courseCode">
-         <th mat-header-cell *matHeaderCellDef> Kurskod </th>
+         <th mat-header-cell *matHeaderCellDef (click)="sortByCode()"> Kurskod </th>
          <td mat-cell *matCellDef="let course"> {{ course.courseCode }} </td>
        </ng-container>
        <ng-container matColumnDef="courseName">
-         <th mat-header-cell *matHeaderCellDef> Kursnamn </th>
+         <th mat-header-cell *matHeaderCellDef (click)="sortByName()"> Kursnamn </th>
          <td mat-cell *matCellDef="let course"> {{ course.courseName }} </td>
        </ng-container>
        <ng-container matColumnDef="points">
-         <th mat-header-cell *matHeaderCellDef> Poäng </th>
+         <th mat-header-cell *matHeaderCellDef (click)="sortByPoints()"> Poäng </th>
          <td mat-cell *matCellDef="let course"> {{ course.points }}hp </td>
        </ng-container>
        <ng-container matColumnDef="subject">
-         <th mat-header-cell *matHeaderCellDef> Ämne  </th>
+         <th mat-header-cell *matHeaderCellDef (click)="sortBySubject()"> Ämne  </th>
          <td mat-cell *matCellDef="let course"> {{ course.subject }} </td>
        </ng-container>
        <ng-container matColumnDef="syllabus">
