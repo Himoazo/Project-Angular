@@ -1,4 +1,4 @@
-import { Component, NgModule, ViewChild, viewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Course } from '../model/course';
 import { FetchcoursesService } from '../services/fetchcourses.service';
 import { CommonModule } from '@angular/common';
@@ -6,9 +6,9 @@ import { FormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { SaveCourseService } from '../services/save-course.service';
 import {MatTableModule, MatTableDataSource} from '@angular/material/table';
-import {MatPaginator, MatPaginatorModule, PageEvent} from '@angular/material/paginator';
-/* import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input'; */
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import { tap } from 'rxjs/operators';
+
 @Component({
   selector: 'app-courses',
   standalone: true,
@@ -22,16 +22,22 @@ export class CoursesComponent {
   searchCourse: string = "";
   ascending: boolean = true;
   selected = '';
-  displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus'];
+  displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'Lägg till'];
   
   constructor(private courseservice: FetchcoursesService, private saveCourse: SaveCourseService){}
   
   ngOnInit(){
-    this.courseservice.getCourses().subscribe(data =>{
+    this.courseservice.getCourses().pipe(
+      tap(data =>{
       this.courses = data;
       this.searchedCourses = data;
-    });
+      this.initializePaginator();
+    })).subscribe();
   }
+  initializePaginator() {
+    this.dataSource = new MatTableDataSource(this.searchedCourses);
+    this.dataSource.paginator = this.paginator;
+  } 
   
   //Sökfunktionen
   courseSearch():void{
@@ -39,6 +45,7 @@ export class CoursesComponent {
       course.courseCode.toLowerCase().includes(this.searchCourse.toLowerCase()) ||
       course.courseName.toLowerCase().includes(this.searchCourse.toLowerCase())
     );
+    this.initializePaginator();
   }
 
   //Subject menu
@@ -54,8 +61,10 @@ export class CoursesComponent {
   selectedSub(): void{
     if(this.selected){
       this.searchedCourses = this.courses.filter(course => course.subject === this.selected);
+      this.initializePaginator();
     }else if(this.selected == ""){
       this.searchedCourses = this.courses;
+      this.initializePaginator();
     }
   }
   //Sorteringsmetoder
@@ -107,50 +116,7 @@ export class CoursesComponent {
     }
   }
 
-  dataSource = new MatTableDataSource<Course>(this.searchedCourses);
- /*  @ViewChild(MatPaginator) paginator!: MatPaginator; */
-  @ViewChild(MatPaginator, { read: true }) paginator!: MatPaginator;
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
-  /* length = 4328;
-  pageSize = 20;
-  pageIndex = 0;
-  pageSizeOptions = [5, 10, 25];
-
-  hidePageSize = false;
-  showPageSizeOptions = true;
-  showFirstLastButtons = true;
-  disabled = false;
-
-  pageEvent!: PageEvent;
-
-  handlePageEvent(e: PageEvent) {
-    this.pageEvent = e;
-    this.length = e.length;
-    this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex;
-  }
-
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    if (setPageSizeOptionsInput) {
-      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-    }
-  } */
-/* ngAfterViewInit() {
-  this.dataSource = new MatTableDataSource(this.searchedCourses);
-  this.dataSource.paginator = this.paginator;
-} */
-  //Paginator
-  /* length = 500;
-  pageSize = 10;
-  pageIndex = 0;
-  pageSizeOptions = [5, 10, 25];
-  showFirstLastButtons = true;
-
-  handlePageEvent(event: PageEvent) {
-    this.length = event.length;
-    this.pageSize = event.pageSize;
-    this.pageIndex = event.pageIndex;
-  } */
+  pageSizes = [10, 20, 30, 40, 50];
+  dataSource!: MatTableDataSource<Course>;
+ @ViewChild('paginator') paginator!: MatPaginator; 
 }

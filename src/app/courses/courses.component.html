@@ -12,60 +12,40 @@
    </mat-select>
   </mat-form-field>
   <span> listar {{searchedCourses.length}} kurses av totalt {{courses.length}} </span>
-<!-- <table mat-table [dataSource]="dataSource">
-    <thead id="head">
-        <tr>
-            <th (click)="sortByCode()">Kurskod </th>
-            <th (click)="sortByName()">Kursnamn </th>
-            <th (click)="sortByPoints()">Poäng</th>
-            <th (click)="sortBySubject()">Ämne</th>
-            <th>Kursplan</th>
-            <th>Lägg till</th>
-        </tr>
-    </thead>
-    <tbody id="data">
-       <tr *ngFor="let course of searchedCourses">
-          <td> {{course.courseCode}} </td>
-          <td> {{course.courseName}} </td>
-          <td> {{course.points}}hp</td>
-          <td> {{course.subject}} </td>
-          <td> <a [href]="course.syllabus">Kursplan</a></td>
-          <td><button (click)="save(course)">Lägg till</button></td>
-       </tr>
-       
-    </tbody>
- </table> -->
- 
- <!-- <ng-container *ngFor="let course of searchedCourses"> -->
+
    <div>
-   <table mat-table [dataSource]="searchedCourses">
+   <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="courseCode">
-         <th mat-header-cell *matHeaderCellDef> Course Code </th>
+         <th mat-header-cell *matHeaderCellDef> Kurskod </th>
          <td mat-cell *matCellDef="let course"> {{ course.courseCode }} </td>
        </ng-container>
        <ng-container matColumnDef="courseName">
-         <th mat-header-cell *matHeaderCellDef> Course Name </th>
+         <th mat-header-cell *matHeaderCellDef> Kursnamn </th>
          <td mat-cell *matCellDef="let course"> {{ course.courseName }} </td>
        </ng-container>
        <ng-container matColumnDef="points">
-         <th mat-header-cell *matHeaderCellDef> points </th>
-         <td mat-cell *matCellDef="let course"> {{ course.points }} </td>
+         <th mat-header-cell *matHeaderCellDef> Poäng </th>
+         <td mat-cell *matCellDef="let course"> {{ course.points }}hp </td>
        </ng-container>
        <ng-container matColumnDef="subject">
-         <th mat-header-cell *matHeaderCellDef> Subject  </th>
+         <th mat-header-cell *matHeaderCellDef> Ämne  </th>
          <td mat-cell *matCellDef="let course"> {{ course.subject }} </td>
        </ng-container>
        <ng-container matColumnDef="syllabus">
-         <th mat-header-cell *matHeaderCellDef> syllabus  </th>
-         <td mat-cell *matCellDef="let course"> {{ course.syllabus }} </td>
+         <th mat-header-cell *matHeaderCellDef> Kursplan  </th>
+         <td mat-cell *matCellDef="let course"> <a [href]="course.syllabus">Kursplan</a> </td>
        </ng-container>
+       <ng-container matColumnDef="Lägg till">
+        <th mat-header-cell *matHeaderCellDef> Lägg till  </th>
+        <td mat-cell *matCellDef="let course"> <button (click)="save(course)">Lägg till</button> </td>
+      </ng-container>
        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                 showFirstLastButtons
-                 aria-label="Select page of periodic elements">
+    <mat-paginator #paginator
+    [pageSizeOptions]="pageSizes"
+    [length]="searchedCourses.length"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements">
   </mat-paginator>
 </div>
-
-    <!-- <tr mat-row *matRowDef="let course; columns: displayedColumns;"></tr> -->
