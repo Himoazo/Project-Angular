@@ -8,11 +8,15 @@ import { SaveCourseService } from '../services/save-course.service';
 import {MatTableModule, MatTableDataSource} from '@angular/material/table';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import { tap } from 'rxjs/operators';
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatSelectModule, MatPaginatorModule, MatPaginator, MatTableModule],
+  imports: [CommonModule, FormsModule, MatSelectModule, MatPaginatorModule, MatPaginator, 
+    MatTableModule, MatButtonModule, MatMenuModule, MatBadgeModule],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss'
 })
@@ -24,7 +28,8 @@ export class CoursesComponent {
   selected = '';
   displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'Lägg till'];
   
-  constructor(private courseservice: FetchcoursesService, private saveCourse: SaveCourseService){}
+  constructor(private courseservice: FetchcoursesService, private saveCourse: SaveCourseService, 
+    private _snackBar: MatSnackBar){}
   
   ngOnInit(){
     this.courseservice.getCourses().pipe(
@@ -116,11 +121,24 @@ export class CoursesComponent {
       console.log(this.existingCourse);
     }else{
       this.saveCourse.courseArr.push(course);
-    this.saveCourse.saveCourse("savedCourses", JSON.stringify(this.saveCourse.courseArr));
+      this.saveCourse.saveCourse("savedCourses", JSON.stringify(this.saveCourse.courseArr));
+      this.courseWidget();
     }
+  }
+  savedCourseWidget: Course[] = [];
+  courseWidget(): Course[] {
+    return this.savedCourseWidget = this.saveCourse.courseArr;
   }
 
   pageSizes = [10, 20, 30, 40, 50];
   dataSource!: MatTableDataSource<Course>;
  @ViewChild('paginator') paginator!: MatPaginator; 
+
+ //Snackbar
+ durationInSeconds = 5000;
+ openSnackBar(message: string) {
+  this._snackBar.open(message + " har lagts till", "X", {
+    duration: this.durationInSeconds
+  });
+}
 }

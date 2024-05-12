@@ -17,7 +17,7 @@ points : number = 0;
 constructor(private saveCourse: SaveCourseService){}
 
   ngOnInit() {
-    this.getSavedCourses();
+    this.courseArr = this.getSavedCourses();
   }
   //Get saved courses
   
@@ -33,5 +33,6 @@ constructor(private saveCourse: SaveCourseService){}
   //Delete a course
   deleteCourse(code: string):void{
     this.saveCourse.clearCourse(code);
+    this.getSavedCourses();
   }
 }
