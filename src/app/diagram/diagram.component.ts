@@ -3,10 +3,11 @@ import { SaveCourseService } from '../services/save-course.service';
 import { Course } from '../model/course';
 import { CommonModule } from '@angular/common';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatButtonModule} from '@angular/material/button';
 @Component({
   selector: 'app-diagram',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
   templateUrl: './diagram.component.html',
   styleUrl: './diagram.component.scss'
 })
