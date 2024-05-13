@@ -6,6 +6,8 @@ import { FormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { SaveCourseService } from '../services/save-course.service';
 import {MatTableModule, MatTableDataSource} from '@angular/material/table';
+import {MatSort, Sort, MatSortModule} from '@angular/material/sort';
+import {LiveAnnouncer} from '@angular/cdk/a11y';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import { tap } from 'rxjs/operators';
 import {MatMenuModule} from '@angular/material/menu';
@@ -16,7 +18,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   selector: 'app-courses',
   standalone: true,
   imports: [CommonModule, FormsModule, MatSelectModule, MatPaginatorModule, MatPaginator, 
-    MatTableModule, MatButtonModule, MatMenuModule, MatBadgeModule],
+    MatTableModule, MatButtonModule, MatMenuModule, MatBadgeModule, MatSortModule],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss'
 })
@@ -29,7 +31,7 @@ export class CoursesComponent {
   displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'Lägg till'];
   
   constructor(private courseservice: FetchcoursesService, private saveCourse: SaveCourseService, 
-    private _snackBar: MatSnackBar){}
+    private _snackBar: MatSnackBar, private _liveAnnouncer: LiveAnnouncer){}
   
   ngOnInit(){
     this.courseservice.getCourses().pipe(
@@ -42,6 +44,7 @@ export class CoursesComponent {
   initializePaginator() {
     this.dataSource = new MatTableDataSource(this.searchedCourses);
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   } 
   
   //Sökfunktionen
@@ -140,5 +143,15 @@ export class CoursesComponent {
   this._snackBar.open(message + " har lagts till", "X", {
     duration: this.durationInSeconds
   });
+}
+
+//Sorting
+@ViewChild(MatSort) sort!: MatSort;
+announceSortChange(sortState: Sort) {
+  if (sortState.direction) {
+    this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+  } else {
+    this._liveAnnouncer.announce('Sorting cleared');
+  }
 }
 }
