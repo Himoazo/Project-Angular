@@ -14,11 +14,12 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatIconModule} from '@angular/material/icon';
 @Component({
   selector: 'app-courses',
   standalone: true,
   imports: [CommonModule, FormsModule, MatSelectModule, MatPaginatorModule, MatPaginator, 
-    MatTableModule, MatButtonModule, MatMenuModule, MatBadgeModule, MatSortModule],
+    MatTableModule, MatButtonModule, MatMenuModule, MatBadgeModule, MatSortModule, MatIconModule],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss',
 })

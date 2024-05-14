@@ -68,16 +68,10 @@ mat-form-field {
   mat-label {
     color: $dark-text-color;
   }
-
-  /* .mat-select {
-    background-color: $light-color;
-    border-radius: 5px;
-  } */
 }
 
 // Table styles
 .dataTable {
-  /* overflow-x: auto; */
   width: 80%; 
   margin: 0 auto;
 
@@ -107,6 +101,7 @@ mat-form-field {
   }
 }
 
+
 // Paginator styles
 mat-paginator {
   background-color: $secondary-color;
@@ -114,7 +109,7 @@ mat-paginator {
   border-radius: 5px;
 }
 
-// Responsive design
+// media queries
 @media only screen and (max-width: 450px) {
   .dataTable {
     width: 99%; 
