@@ -20,7 +20,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   imports: [CommonModule, FormsModule, MatSelectModule, MatPaginatorModule, MatPaginator, 
     MatTableModule, MatButtonModule, MatMenuModule, MatBadgeModule, MatSortModule],
   templateUrl: './courses.component.html',
-  styleUrl: './courses.component.scss'
+  styleUrl: './courses.component.scss',
 })
 export class CoursesComponent {
   courses: Course[] = [];

@@ -1,112 +1,3 @@
-
-
-/* Table */
-/* img{
-    width: 2%;
-    height: 2%;
-}
-
-table{
-    font-size: large;
-    width: 80%;
-    margin: 2vh auto;
-}
-
-th, td{
-    padding: 1em;
-    text-align: center;
-}
-
-thead{
-    background-color: #FFD700; 
-    color: #191919; 
-    font-weight: bold; 
-    cursor: pointer;
-}
-
-tbody tr:nth-child(even) {
-    background-color: #f2f2f2; 
-}
-tbody tr:nth-child(odd) {
-    background-color: #ffffff; 
-}
-
-tbody tr:hover {
-    background-color: rgb(250, 176, 149); 
-} */
-
-/* Search input */
-
-/* #form {
-    width: fit-content;
-    margin: 5vh auto; 
-    padding: 1rem;
-    background-color: #f9f9f9;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    font-size: large;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-    box-sizing: border-box;
-} */
-
-/* media queries */
-/* @media only screen and (max-width: 800px){
-    h1{
-        font-size: 1.2em;
-    }
-    table{
-        font-size:large; 
-        width: 90%;
-    }
-    
-    #head tr th{
-        font-size: 0.5em;
-        padding: 0.1rem;
-        min-width: 20vw;
-    }
-    #data tr td{
-        font-size: 0.7em;
-        padding: 0.1rem;
-    }
-
-    img{
-        width: 1vw;
-        height: 1vh;
-    }
-}
-
-
-#overview{
-    background-color: lightgray;
-    width: fit-content;
-}
-
-#form{
-    width: 80%;
-    margin: 0 auto;
-    background-color: lightgray;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.dataTable{
-    width: 80%;
-    margin: 0 auto;
-} */
-
 // Define your color palette
 $primary-color: #005f73;
 $secondary-color: #0a9396;
@@ -115,19 +6,6 @@ $background-color: #e9d8a6;
 $light-color: #ee9b00;
 $dark-text-color: #001219;
 $light-text-color: white;
-
-// General styles
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: $background-color;
-  color: $dark-text-color;
-}
 
 // Overview button styles
 #overview {
@@ -164,20 +42,20 @@ mat-menu {
   margin-bottom: 20px;
 
   label {
-    margin-bottom: 5px;
+    margin-bottom: 1vh;
   }
 
   input[type="text"] {
     width: 100%;
     max-width: 500px;
-    padding: 10px;
+    padding: 1rem;
     border: 1px solid $secondary-color;
     border-radius: 5px;
     margin-bottom: 10px;
   }
 
   span {
-    margin-top: 10px;
+    margin-top: 2vh;
   }
 }
 
@@ -199,25 +77,23 @@ mat-form-field {
 
 // Table styles
 .dataTable {
-  overflow-x: auto;
+  /* overflow-x: auto; */
+  width: 80%; 
+  margin: 0 auto;
 
   table {
-    width: 100%;
+    width: 100%; 
     border-collapse: collapse;
 
     th, td {
-      padding: 10px;
+      padding: 0.5rem;
       border: 1px solid $secondary-color;
-      text-align: left;
+      text-align: center;
     }
 
     th {
       background-color: $primary-color;
       color: $light-text-color;
-    }
-
-    td {
-      background-color: $light-color;
     }
 
     a {
@@ -234,7 +110,7 @@ mat-form-field {
 // Paginator styles
 mat-paginator {
   background-color: $secondary-color;
-  padding: 10px;
+  padding: 1em;
   border-radius: 5px;
   margin-top: 20px;
 
@@ -244,9 +120,26 @@ mat-paginator {
 }
 
 // Responsive design
-@media only screen and (max-width: 768px) {
-  #form, .dataTable {
-    width: 95%;
-    max-width: unset;
+@media only screen and (max-width: 450px) {
+  .dataTable {
+    /* overflow-x: auto; */
+    width: 99%; 
+    margin: 0 auto;
   }
+  table {
+    width: fit-content;
+  }
+  .courseCodes, .subjects{
+    display: none;
+  } 
+  /* th{
+    font-size: 0.6em;
+  } */
+  td {
+    padding: 0%;
+    margin: 0;
+    border: 1px solid $secondary-color;
+    /* font-size: 0.5em; */
+  }
+
 }
