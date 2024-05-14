@@ -1,0 +1,22 @@
+@import '../courses/courses.component.scss';
+
+.course-summary {
+    text-align: center;
+    margin-bottom: 20px;
+  
+    .course-count, .total-points {
+      font-size: 16px;
+      color: $dark-text-color;
+      margin: 10px 0;
+    }
+  
+    .course-count {
+      font-weight: bold;
+    }
+  
+    .total-points {
+      font-style: italic;
+    }
+  }
+  
+  

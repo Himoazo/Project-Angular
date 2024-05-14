@@ -1,7 +1,7 @@
 /* Design av Header */
 header {
     min-height: 10vh;
-    background-color: #964B00;
+    background-color: #005f73;
     margin: 0;
     position: relative;
     padding: 0 1em;
@@ -19,7 +19,7 @@ header {
 
 /* Design av meny för mobilenheter, placeras till höger om skärmen */
 nav {
-    background-color: #964B00;
+    background-color: #005f73;
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.71);
     font-size: 1.4em;
     position: absolute;
@@ -51,7 +51,7 @@ nav a {
 }
 
 nav li:hover {
-    background-color: rgb(94, 15, 15);
+    background-color: #94d2bd;
     cursor: pointer;
     padding: 1em 0;
 }
@@ -61,7 +61,7 @@ nav li:hover {
     display: flex;
     align-items: center;
     padding: 8px 15px;
-    background-color: rgb(119, 24, 24);
+    background-color: #0a9396;
     border: white solid 2px;
     cursor: pointer;
 }
@@ -71,7 +71,7 @@ nav li:hover {
 }
 
 .menu-btn:hover {
-    background-color: rgb(94, 15, 15);
+    background-color: #0a9396;
     box-shadow: 0 0px 5px rgba(0, 0, 0, 0.421);
 }
 
@@ -128,7 +128,7 @@ p{
 }
 
 a.active{
-    background-color: rgb(94, 15, 15);
+    background-color: #0a9396;
   }
 
 /* media query */

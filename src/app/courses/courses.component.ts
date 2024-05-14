@@ -76,7 +76,7 @@ export class CoursesComponent {
     }
   }
   //Sorteringsmetoder
-  sortByName():void{
+ /*  sortByName():void{
     if(this.ascending === true){
       this.searchedCourses.sort((a, b)=> (a.courseName > b.courseName)? 1 : -1);
     }else{
@@ -114,7 +114,7 @@ export class CoursesComponent {
       }
       this.ascending = !this.ascending;
       this.initializePaginator();
-    }
+    } */
   //Save course to localStorage
   existingCourse: string = "";
   save(course: Course):void{

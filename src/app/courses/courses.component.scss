@@ -69,10 +69,10 @@ mat-form-field {
     color: $dark-text-color;
   }
 
-  .mat-select {
+  /* .mat-select {
     background-color: $light-color;
     border-radius: 5px;
-  }
+  } */
 }
 
 // Table styles
@@ -112,17 +112,11 @@ mat-paginator {
   background-color: $secondary-color;
   padding: 1em;
   border-radius: 5px;
-  margin-top: 20px;
-
-  .mat-paginator-range-label {
-    color: $light-text-color;
-  }
 }
 
 // Responsive design
 @media only screen and (max-width: 450px) {
   .dataTable {
-    /* overflow-x: auto; */
     width: 99%; 
     margin: 0 auto;
   }
@@ -132,14 +126,11 @@ mat-paginator {
   .courseCodes, .subjects{
     display: none;
   } 
-  /* th{
-    font-size: 0.6em;
-  } */
+  
   td {
     padding: 0%;
     margin: 0;
     border: 1px solid $secondary-color;
-    /* font-size: 0.5em; */
   }
 
 }
