@@ -110,7 +110,7 @@ mat-paginator {
 }
 
 // media queries
-@media only screen and (max-width: 450px) {
+@media only screen and (min-width: 361px) and (max-width: 750px ) {
   .dataTable {
     width: 99%; 
     margin: 0 auto;
@@ -121,11 +121,17 @@ mat-paginator {
   .courseCodes, .subjects{
     display: none;
   } 
-  
-  td {
-    padding: 0%;
-    margin: 0;
-    border: 1px solid $secondary-color;
-  }
-
 }
+@media only screen and (max-width: 360px) {
+  .dataTable {
+    width: 99%; 
+    margin: 0 auto;
+  }
+  table {
+    width: fit-content;
+  }
+  .courseCodes, .subjects, .syllabuses{
+    display: none;
+  } 
+}
+

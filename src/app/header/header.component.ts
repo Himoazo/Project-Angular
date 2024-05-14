@@ -9,6 +9,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+    logo = "assets/logo.png"
   //Hamburger menu
   openBtn = document.getElementById("open-menu");
   closeBtn = document.getElementById("close-menu");
