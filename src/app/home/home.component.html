@@ -1,1 +1,54 @@
-<p>home works!</p>
+<div id="videoBackground">
+<video autoplay loop muted id="background" poster="books">
+  <source [src]="video" type="video/mp4">
+  <img [src]="uniStudents"  alt="Bild på universitets studenter">
+</video>
+</div>
+  <div class="cardGrid">
+  <mat-grid-list cols="2" rowHeight="1.2:1">
+    <mat-grid-tile>
+      <mat-card class="card">
+        <img mat-card-image [src]="gradStudents"  alt="Bild på universitets studenter i examens dag">
+        <mat-card-content>
+          <p>
+            <strong>Specialiserade kurser för din framtid</strong>  Utforska vårt breda utbud av specialiserade kurser som ger dig de 
+            färdigheter du behöver för att nå dina karriärmål.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card class="card">
+        <img mat-card-image [src]="uniPic"  alt="Bild på universitets studenter i ett klassrum">
+        <mat-card-content>
+          <p>
+            <strong>Flexibla studiealternativ för alla</strong>  Välj bland våra flexibla studiealternativ och anpassa ditt schema för att 
+            passa din livsstil och arbetsbelastning.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card class="card">
+        <img mat-card-image [src]="uniStudents"  alt="Bild på universitets studenter">
+        <mat-card-content>
+          <p>
+            <strong>Engagerande inlärning med expertinstruktörer </strong> Våra kurser erbjuds av erfarna instruktörer som brinner för att ge dig 
+            en engagerande och givande inlärningsupplevelse.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card class="card">
+        <img mat-card-image [src]="books"  alt="Bild på universitets studenter">
+        <mat-card-content>
+          <p>
+            <strong> Högkvalitet kurser med moderna pedagogiska metoder.</strong> kurserna uppdateras kontinuerligt för att hålla dig uppdaterad 
+            med de senaste vetenskapliga upptäckterna.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
