@@ -10,8 +10,8 @@ header {
     align-items: center;
 }
 .logo{
-    max-height: 100;
-    max-width: 85;
+    height: 100;
+    width: 85;
 }
 
 /* Design av meny för mobilenheter, placeras till höger om skärmen */
@@ -135,8 +135,8 @@ a.active{
     }
 
     .logo{
-        max-height: 100;
-        max-width: 85;
+        height: 60;
+        width: 51;
     }
 
     .menu-btn {
