@@ -17,7 +17,7 @@ export class SaveCourseService {
   getCourses(key: string): Course[] {
     const storedData = localStorage.getItem(key);
     if (storedData) {
-      return JSON.parse(storedData) as Course[]; 
+      return this.courseArr = JSON.parse(storedData) as Course[]; 
       
     }else{
       return [];
@@ -28,6 +28,7 @@ export class SaveCourseService {
   clearCourse(code: string) :void {
     this.courseArr = this.courseArr.filter((course) => course.courseCode !== code);
     localStorage.setItem("savedCourses", JSON.stringify(this.courseArr));
+    this.getCourses("savedCourses");
   }
 
   //Delete all saved courses

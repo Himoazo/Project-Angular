@@ -20,7 +20,7 @@ export class DiagramComponent {
   //Properties
 courseArr: Course [] = [];
 points : number = 0;
-displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'Lägg till'];
+displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'Ta bort'];
 dataSource = new MatTableDataSource(this.getSavedCourses());
 constructor(private saveCourse: SaveCourseService, private _snackBar: MatSnackBar, private _liveAnnouncer: LiveAnnouncer){}
 
@@ -41,7 +41,7 @@ constructor(private saveCourse: SaveCourseService, private _snackBar: MatSnackBa
   //Delete a course
   deleteCourse(code: string):void{
     this.saveCourse.clearCourse(code);
-    this.getSavedCourses();
+    this.ngOnInit();
     this.ngAfterViewInit();
   }
 
