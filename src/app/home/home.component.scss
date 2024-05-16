@@ -41,6 +41,8 @@ opacity: 0.5;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
+  width: 50%;
+  margin: 0 auto;
   cursor: pointer;
   transition: background-color 0.3s ease;
   z-index: 1;
@@ -77,5 +79,9 @@ opacity: 0.5;
 @media only screen and (max-width: 750px){
   .cardGrid {
     width: 95%;
+    }
+
+    .heroText {
+      font-size: 1.5em;
     }
 }

@@ -30,9 +30,4 @@ export class SaveCourseService {
     localStorage.setItem("savedCourses", JSON.stringify(this.courseArr));
     this.getCourses("savedCourses");
   }
-
-  //Delete all saved courses
-  clearAll() :void{
-    localStorage.clear();
-  }
 }
