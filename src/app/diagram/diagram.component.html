@@ -26,7 +26,8 @@
     </ng-container>
     <ng-container matColumnDef="Lägg till">
      <th mat-header-cell *matHeaderCellDef>Ta bort</th>
-     <td mat-cell *matCellDef="let course"> <button mat-raised-button color="warn" (click)="deleteCourse(course.courseCode); openSnackBar(course.courseName)">
+     <td mat-cell *matCellDef="let course"> 
+      <button mat-raised-button color="warn" (click)="deleteCourse(course.courseCode); openSnackBar(course.courseName)" matTooltip="Radera kurs">
       <span><mat-icon aria-hidden="false" aria-label="ta bort kurs ikon" fontIcon="close"></mat-icon></span>
     </button> </td>
    </ng-container>

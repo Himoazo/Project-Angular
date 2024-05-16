@@ -1,5 +1,8 @@
 <div id="overview"> 
-  <button mat-button [matMenuTriggerFor]="menu" (click)="courseWidget();" matBadge={{savedCourseWidget.length}} aria-label="Ramschema översikt menyknapp">
+  <button mat-button [matMenuTriggerFor]="menu" 
+  (click)="courseWidget();" matBadge={{savedCourseWidget.length}}
+  matTooltip="Se namn på sparade kurser" 
+  aria-label="Ramschema översikt menyknapp">
   Ramschema</button>
 </div> 
 <mat-menu #menu="matMenu" aria-label="meny för kurserna i ramschemat">
@@ -11,12 +14,12 @@
 <div id="form">
     <span>
     <label for="serach">Sök kurser</label>
-    <input type="text" id="serach" [(ngModel)]="searchCourse" (input)="courseSearch()">
+    <input type="text" id="serach" [(ngModel)]="searchCourse" (input)="courseSearch()" matTooltip="Sök bland alla kurser">
     </span>
     <span> listar {{searchedCourses.length}} kurses av totalt {{courses.length}} </span>
  <mat-form-field aria-label="vallista för ämnen">
    <mat-label>Välje ämne</mat-label>
-   <mat-select (selectionChange)="selectedSub()" [(value)]="selected">
+   <mat-select (selectionChange)="selectedSub()" [(value)]="selected" matTooltip="Visa kurser med särskilt ämne">
       <mat-option value="">Alla ämnen</mat-option>
    <mat-option *ngFor="let subject of subjects()" value="{{subject}}">{{subject}}</mat-option>
    </mat-select>
@@ -43,13 +46,16 @@
        </ng-container>
        <ng-container matColumnDef="syllabus" class="syllabuses">
          <th mat-header-cell *matHeaderCellDef class="syllabuses"> Kursplan  </th>
-         <td mat-cell *matCellDef="let course" class="syllabuses"> <a [href]="course.syllabus" class="syllabuses">Kursplan</a> </td>
+         <td mat-cell *matCellDef="let course" class="syllabuses"> 
+          <a [href]="course.syllabus" class="syllabuses" matTooltip="Kursens webbplats">Kursplan</a> </td>
        </ng-container>
        <ng-container matColumnDef="Lägg till">
         <th mat-header-cell *matHeaderCellDef>Lägg till</th>
-        <td mat-cell *matCellDef="let course"> <button mat-raised-button color="accent" (click)="save(course); openSnackBar(course.courseName)"> 
+        <td mat-cell *matCellDef="let course"> 
+          <button mat-raised-button color="accent" (click)="save(course); openSnackBar(course.courseName)" matTooltip="Lägg till i ramschema"> 
           <span><mat-icon aria-hidden="false" aria-label="lägg till ikon" fontIcon="add"></mat-icon></span>
-        </button> </td>
+        </button> 
+        </td>
       </ng-container>
        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

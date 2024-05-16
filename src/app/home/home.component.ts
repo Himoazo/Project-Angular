@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { MatTooltip } from '@angular/material/tooltip';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatCardModule, MatGridListModule],
+  imports: [MatCardModule, MatGridListModule, MatTooltip],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

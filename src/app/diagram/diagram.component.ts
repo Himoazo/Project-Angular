@@ -8,10 +8,11 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import {MatSort, Sort, MatSortModule} from '@angular/material/sort';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltip } from '@angular/material/tooltip';
 @Component({
   selector: 'app-diagram',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatTableModule, MatSortModule, MatIconModule],
+  imports: [CommonModule, MatButtonModule, MatTableModule, MatSortModule, MatIconModule, MatTooltip],
   templateUrl: './diagram.component.html',
   styleUrl: './diagram.component.scss'
 })

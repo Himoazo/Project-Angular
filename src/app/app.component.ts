@@ -3,12 +3,13 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { FooterComponent } from './footer/footer.component';
+import { MatTooltip } from '@angular/material/tooltip';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, MatSlideToggleModule],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, MatSlideToggleModule, MatTooltip],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
