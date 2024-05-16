@@ -41,7 +41,6 @@ constructor(private saveCourse: SaveCourseService, private _snackBar: MatSnackBa
   //Delete a course
   deleteCourse(code: string):void{
     this.saveCourse.clearCourse(code);
-    this.ngOnInit();
     this.ngAfterViewInit();
   }
 

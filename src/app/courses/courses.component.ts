@@ -45,6 +45,7 @@ export class CoursesComponent {
       this.searchedCourses = data;
       this.initializePaginator();
     })).subscribe();
+    this.courseWidget();
   }
 
   //Paginator
@@ -101,6 +102,8 @@ export class CoursesComponent {
       this.courseWidget();
     }
   }
+
+  //Saved courses widget (mini ramschema)
   savedCourseWidget: Course[] = [];
   courseWidget(): Course[] {
     return this.savedCourseWidget = this.saveCourse.courseArr;
@@ -109,9 +112,15 @@ export class CoursesComponent {
  //Snackbar
  durationInSeconds = 5000;
  openSnackBar(message: string) {
-  this._snackBar.open(message + " har lagts till", "X", {
+  if(this.existingCourse){
+    this._snackBar.open(this.existingCourse, "X", {
+      duration: this.durationInSeconds
+    });
+  }else{
+    this._snackBar.open(message + " har lagts till", "X", {
     duration: this.durationInSeconds
   });
+  }
 }
 
 //Sorting
