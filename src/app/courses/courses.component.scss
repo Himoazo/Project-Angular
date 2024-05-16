@@ -91,7 +91,7 @@ mat-form-field {
     }
 
     a {
-      color: $secondary-color;
+      color: darken($primary-color, 10%);
       font-weight: 400;
       text-decoration: none;
 
