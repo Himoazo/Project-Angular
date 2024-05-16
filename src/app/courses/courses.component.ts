@@ -15,6 +15,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatIconModule} from '@angular/material/icon';
+
 @Component({
   selector: 'app-courses',
   standalone: true,
@@ -23,7 +24,9 @@ import {MatIconModule} from '@angular/material/icon';
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss',
 })
+
 export class CoursesComponent {
+  //Properties
   courses: Course[] = [];
   searchedCourses: Course[] = [];
   searchCourse: string = "";

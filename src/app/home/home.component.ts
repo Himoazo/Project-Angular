@@ -9,6 +9,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  //img & video properties
   uniStudents = "assets/uniStudents.jpg";
   uniPic = "assets/uni2.jpg";
   gradStudents = "assets/graduation.jpg";

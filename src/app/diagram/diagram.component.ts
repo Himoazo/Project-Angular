@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './diagram.component.scss'
 })
 export class DiagramComponent {
+  //Properties
 courseArr: Course [] = [];
 points : number = 0;
 displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'Lägg till'];

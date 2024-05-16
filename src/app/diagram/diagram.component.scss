@@ -1,8 +1,10 @@
 @import '../courses/courses.component.scss';
 
+//Table container
 .container{
   min-height: 100vh;
 }
+//course count + hp
 .course-summary {
     text-align: center;
     margin-bottom: 20px;
