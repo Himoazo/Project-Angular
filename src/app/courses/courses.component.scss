@@ -1,4 +1,4 @@
-// Define your color palette
+// Color variables
 $primary-color: #005f73;
 $secondary-color: #0a9396;
 $accent-color: #94d2bd;
@@ -110,7 +110,7 @@ mat-paginator {
 }
 
 // media queries
-@media only screen and (min-width: 376px) and (max-width: 750px ) {
+@media only screen and (min-width: 401px) and (max-width: 750px ) {
   .dataTable {
     width: 99%; 
     margin: 0 auto;
@@ -122,7 +122,7 @@ mat-paginator {
     display: none;
   } 
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 400px) {
   .dataTable {
     width: 99%; 
     margin: 0 auto;

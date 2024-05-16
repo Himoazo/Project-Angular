@@ -20,12 +20,15 @@ export class AppComponent {
 
 isDarkMode:boolean = false; 
 
+// Darl/Light theme Switch
 themeSwitch() {
     this.isDarkMode=!this.isDarkMode;
     if(this.isDarkMode){
       this.currentTheme = 'darkTheme';
+      document.body.style.backgroundColor = '#121212';
     } else {
-      this.currentTheme = 'lightTheme'
+      this.currentTheme = 'lightTheme';
+      document.body.style.backgroundColor = '#f5f0e1';
     }
   }
 }

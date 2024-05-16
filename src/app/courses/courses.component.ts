@@ -42,6 +42,13 @@ export class CoursesComponent {
       this.initializePaginator();
     })).subscribe();
   }
+
+  //Paginator
+  pageSizes = [10, 20, 30, 40, 50];
+  dataSource!: MatTableDataSource<Course>;
+ @ViewChild('paginator') paginator!: MatPaginator; 
+
+  //Pass paginator and sort to course data
   initializePaginator() {
     this.dataSource = new MatTableDataSource(this.searchedCourses);
     this.dataSource.paginator = this.paginator;
@@ -76,46 +83,7 @@ export class CoursesComponent {
       this.initializePaginator();
     }
   }
-  //Sorteringsmetoder
- /*  sortByName():void{
-    if(this.ascending === true){
-      this.searchedCourses.sort((a, b)=> (a.courseName > b.courseName)? 1 : -1);
-    }else{
-      this.searchedCourses.sort((a, b)=> (a.courseName < b.courseName)? 1 : -1);
-    }
-      this.ascending = !this.ascending;
-      this.initializePaginator();
-  }
-
-  sortByCode():void{
-    if(this.ascending === true){
-      this.searchedCourses.sort((a, b)=> (a.courseCode > b.courseCode)? 1 : -1);
-    }else{
-      this.searchedCourses.sort((a, b)=> (a.courseCode < b.courseCode)? 1 : -1);
-    }
-      this.ascending = !this.ascending;
-      this.initializePaginator();
-  }
-
-  sortByPoints():void{
-    if(this.ascending === true){
-      this.searchedCourses.sort((a, b)=> (a.points > b.points) ? 1 : -1);
-    }else{
-      this.searchedCourses.sort((a, b)=> (a.points < b.points) ? 1 : -1);
-    }
-      this.ascending = !this.ascending;
-      this.initializePaginator();
-    }
-
-    sortBySubject():void{
-      if(this.ascending === true){
-        this.searchedCourses.sort((a, b)=> (a.subject > b.subject) ? 1 : -1);
-      }else{
-        this.searchedCourses.sort((a, b)=> (a.subject < b.subject) ? 1 : -1);
-      }
-      this.ascending = !this.ascending;
-      this.initializePaginator();
-    } */
+  
   //Save course to localStorage
   existingCourse: string = "";
   save(course: Course):void{
@@ -133,10 +101,6 @@ export class CoursesComponent {
   courseWidget(): Course[] {
     return this.savedCourseWidget = this.saveCourse.courseArr;
   }
-
-  pageSizes = [10, 20, 30, 40, 50];
-  dataSource!: MatTableDataSource<Course>;
- @ViewChild('paginator') paginator!: MatPaginator; 
 
  //Snackbar
  durationInSeconds = 5000;

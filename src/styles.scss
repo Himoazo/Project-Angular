@@ -8,28 +8,15 @@
 
 html{ 
   height: 100%;
-  /* width: fit-content; */
  }
 body { 
+  background-color: #f5f0e1;
   height: 100%;
   margin: 0; 
   font-family: Roboto, "Helvetica Neue", sans-serif; 
+  
 }
 
 .darkTheme{
     @include mat.all-component-themes($Project-Angular-dark-theme);
 }
-
-/* .mdc-button__label{
-    width: 1%;
-    font-size: 0.4em;
-  }
-
-  .mat-mdc-raised-button.mat-accent{
-    width: 1%;
-  }
-
-  .mat-accent{
-    background-color: black;
-    display: none;
-  } */

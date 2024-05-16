@@ -25,14 +25,14 @@ constructor(private saveCourse: SaveCourseService, private _snackBar: MatSnackBa
   ngOnInit() {
     this.courseArr = this.getSavedCourses();
   }
+
   //Get saved courses
-  
   getSavedCourses() :Course[] {
     this.courseArr = this.saveCourse.getCourses("savedCourses");
     this.pointSum();
     return this.courseArr;
   }
-  
+  //Summan högskolepoäng
   pointSum():void{
     this.points = this.courseArr.reduce((total, course) => total + course.points, 0);
   }

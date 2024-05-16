@@ -1,69 +1,81 @@
-/* #videoBackground{
-  background-color: #005f73;
-  position: relative;
-  
-  min-height: 60vh;
-  width: 100%;
-  opacity: 0.5;
-}
+$primary-color: #005f73;
+$secondary-color: #0a9396;
+$accent-color: #94d2bd;
 
-#background{
+//Hero video
+#videoBackground {
+background-color: $primary-color;
+position: relative;
+min-height: 60vh;
+width: 100%;
+opacity: 0.5;
+
+#background {
   width: 100%;
   height: 100%;
   object-fit: cover;
   position: absolute;
   top: 0;
-  z-index: -1; 
+  z-index: -1;
+}
+}
+//Hero container button & text
+.hero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff; 
 }
 
-.cardGrid{
-  margin: 0 auto;
-  width: 80%;
+.heroText {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 2vh;
 }
 
-.card {
-    max-width: 400px;
-    transition: transform 0.3s ease;
-    background-color: #94d2bd;
-  }
-  .card:hover {
-    transform: scale(1.02);
-  }
-   */
+.heroButton {
+  background-color: $primary-color;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1;
+}
 
-   $primary-color: #005f73;
-$secondary-color: #0a9396;
-$accent-color: #94d2bd;
+.heroButton:hover {
+  background-color: $accent-color;
+}
 
-   #videoBackground {
-    background-color: $primary-color;
-    position: relative;
-    min-height: 60vh;
-    width: 100%;
-    opacity: 0.5;
-  
-    #background {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      z-index: -1;
-    }
-  }
-  
+//Cards
+.cardGrid {
+  width: fit-content;
+  margin: 5% auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.card{
+  background-color: $accent-color;
+}
+
+.card img{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.card:hover{
+  transform: scale(1.02);
+}
+
+
+
+@media only screen and (max-width: 750px){
   .cardGrid {
-    margin: 0 auto;
-    width: 80%;
-  
-    .card {
-      max-width: 400px;
-      transition: transform 0.3s ease;
-      background-color: $accent-color;
-  
-      &:hover {
-        transform: scale(1.02);
-      }
+    width: 95%;
     }
-  }
-  
+}

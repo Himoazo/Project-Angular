@@ -1,8 +1,8 @@
 <div id="overview"> 
-  <button mat-button [matMenuTriggerFor]="menu" (click)="courseWidget();" matBadge={{savedCourseWidget.length}}>
+  <button mat-button [matMenuTriggerFor]="menu" (click)="courseWidget();" matBadge={{savedCourseWidget.length}} aria-label="Ramschema översikt menyknapp">
   Ramschema</button>
 </div> 
-<mat-menu #menu="matMenu">
+<mat-menu #menu="matMenu" aria-label="meny för kurserna i ramschemat">
   @for(course of savedCourseWidget; track course.courseName){
     <button mat-menu-item>{{course.courseName}}</button>
   }
@@ -14,7 +14,7 @@
     <input type="text" id="serach" [(ngModel)]="searchCourse" (input)="courseSearch()">
     </span>
     <span> listar {{searchedCourses.length}} kurses av totalt {{courses.length}} </span>
- <mat-form-field>
+ <mat-form-field aria-label="vallista för ämnen">
    <mat-label>Välje ämne</mat-label>
    <mat-select (selectionChange)="selectedSub()" [(value)]="selected">
       <mat-option value="">Alla ämnen</mat-option>
