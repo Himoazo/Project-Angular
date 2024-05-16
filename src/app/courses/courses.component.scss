@@ -1,12 +1,4 @@
-// Color variables
-$primary-color: #005f73;
-$secondary-color: #0a9396;
-$accent-color: #94d2bd;
-$background-color: #e9d8a6;
-$light-color: #ee9b00;
-$dark-text-color: #001219;
-$light-text-color: white;
-
+@import '../diagram/diagram.component.scss';
 // Overview button styles
 #overview {
   text-align: center;
@@ -70,38 +62,9 @@ mat-form-field {
   }
 }
 
-// Table styles
-.dataTable {
-  width: 80%; 
-  min-height: 100vh;
-  margin: 0 auto;
-
-  table {
-    min-height: 650px;
-    width: 100%; 
-    border-collapse: collapse;
-
-    th, td {
-      padding: 0.5rem;
-      border: 1px solid $secondary-color;
-      text-align: center;
-    }
-
-    th {
-      background-color: $primary-color;
-      color: $light-text-color;
-    }
-
-    a {
-      color: darken($primary-color, 10%);
-      font-weight: 400;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
+//Table
+table {
+  min-height: 650px;
 }
 
 
@@ -112,31 +75,5 @@ mat-paginator {
   border-radius: 5px;
   margin-top: auto;
   margin-bottom: 0;
-}
-
-// media queries
-@media only screen and (min-width: 401px) and (max-width: 750px ) {
-  .dataTable {
-    width: 99%; 
-    margin: 0 auto;
-  }
-  table {
-    width: fit-content;
-  }
-  .courseCodes, .subjects{
-    display: none;
-  } 
-}
-@media only screen and (max-width: 400px) {
-  .dataTable {
-    width: 99%; 
-    margin: 0 auto;
-  }
-  table {
-    width: fit-content;
-  }
-  .courseCodes, .subjects, .syllabuses{
-    display: none;
-  } 
 }
 
