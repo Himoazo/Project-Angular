@@ -1,5 +1,5 @@
 <div id="videoBackground">
-<video autoplay loop muted id="background" poster="books">
+<video autoplay loop muted id="background" oncanplay="this.play()" onloadedmetadata="this.muted = true" poster="books">
   <source [src]="video" type="video/mp4">
   <img [src]="uniStudents"  alt="Bild på universitets studenter">
 </video>
