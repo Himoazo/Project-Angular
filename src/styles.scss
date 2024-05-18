@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@import 'assets/_theme.scss';
+@include mat.core();
 
 *{
     padding: 0;
@@ -16,6 +16,22 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif; 
   
 }
+
+
+//Angular component palette definition
+$Project-Angular-primary: mat.define-palette(mat.$indigo-palette);
+$Project-Angular-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$Project-Angular-warn: mat.define-palette(mat.$red-palette);
+
+
+//Define Dark theme
+$Project-Angular-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $Project-Angular-primary,
+    accent: $Project-Angular-accent,
+    warn: $Project-Angular-warn,
+  )
+));
 
 .darkTheme{
     @include mat.all-component-themes($Project-Angular-dark-theme);

@@ -14,12 +14,26 @@ import { MatTooltip } from '@angular/material/tooltip';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Project-Angular';
+  title = 'Kunskapsuniversitetet';
 
   @HostBinding('class')
   currentTheme: 'lightTheme' | 'darkTheme' = 'lightTheme';
 
 isDarkMode:boolean = false; 
+
+// laddar tema från sessionStorage
+ngOnInit() {
+  const storedTheme = sessionStorage.getItem('theme');
+  if (storedTheme === 'darkTheme') {
+    this.isDarkMode = true;
+    this.currentTheme = 'darkTheme';
+    document.body.style.backgroundColor = '#121212';
+  } else {
+    this.isDarkMode = false;
+    this.currentTheme = 'lightTheme';
+    document.body.style.backgroundColor = '#f5f0e1';
+  }
+}
 
 // Darl/Light theme Switch
 themeSwitch() {
@@ -27,9 +41,11 @@ themeSwitch() {
     if(this.isDarkMode){
       this.currentTheme = 'darkTheme';
       document.body.style.backgroundColor = '#121212';
+      sessionStorage.setItem('theme', 'darkTheme');
     } else {
       this.currentTheme = 'lightTheme';
       document.body.style.backgroundColor = '#f5f0e1';
+      sessionStorage.setItem('theme', 'lightTheme');
     }
   }
 }
