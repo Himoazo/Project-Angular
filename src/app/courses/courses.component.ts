@@ -92,6 +92,7 @@ export class CoursesComponent {
   //Save course to localStorage
   existingCourse: string = "";
   save(course: Course):void{
+    this.existingCourse = "";
     //Check to prevent dublicates
     if(this.saveCourse.courseArr.some((item)=> item.courseCode === course.courseCode)){
       this.existingCourse = "Denna kurs är redan sparad";
