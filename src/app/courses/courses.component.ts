@@ -38,13 +38,13 @@ export class CoursesComponent {
   constructor(private courseservice: FetchcoursesService, private saveCourse: SaveCourseService, 
     private _snackBar: MatSnackBar, private _liveAnnouncer: LiveAnnouncer){}
   
-  ngOnInit(){
-    this.courseservice.getCourses().pipe(
-      tap(data =>{
+  
+  ngOnInit() {
+    this.courseservice.getCourses().subscribe(data => {
       this.courses = data;
       this.searchedCourses = data;
       this.initializePaginator();
-    })).subscribe();
+    });
     this.courseWidget();
   }
 
