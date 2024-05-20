@@ -9,7 +9,6 @@ import {MatTableModule, MatTableDataSource} from '@angular/material/table';
 import {MatSort, Sort, MatSortModule} from '@angular/material/sort';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import { tap } from 'rxjs/operators';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
