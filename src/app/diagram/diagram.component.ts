@@ -5,8 +5,7 @@ import { CommonModule } from '@angular/common';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatButtonModule} from '@angular/material/button';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import {MatSort, Sort, MatSortModule} from '@angular/material/sort';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
+import {MatSort, MatSortModule} from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
 @Component({
@@ -22,7 +21,7 @@ courseArr: Course [] = [];
 points : number = 0;
 displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'Ta bort'];
 dataSource = new MatTableDataSource(this.getSavedCourses());
-constructor(private saveCourse: SaveCourseService, private _snackBar: MatSnackBar, private _liveAnnouncer: LiveAnnouncer){}
+constructor(private saveCourse: SaveCourseService, private _snackBar: MatSnackBar){}
 
   ngOnInit() {
     this.courseArr = this.getSavedCourses();
@@ -52,16 +51,11 @@ constructor(private saveCourse: SaveCourseService, private _snackBar: MatSnackBa
   });
 }
 //Sorting
+@ViewChild(MatSort) sort!: MatSort;
+
 ngAfterViewInit() {
   this.dataSource = new MatTableDataSource(this.getSavedCourses());
   this.dataSource.sort = this.sort;
 }
-@ViewChild(MatSort) sort!: MatSort;
-announceSortChange(sortState: Sort) {
-  if (sortState.direction) {
-    this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-  } else {
-    this._liveAnnouncer.announce('Sorting cleared');
-  }
-}
+
 }

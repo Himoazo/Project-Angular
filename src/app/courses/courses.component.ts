@@ -6,8 +6,7 @@ import { FormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { SaveCourseService } from '../services/save-course.service';
 import {MatTableModule, MatTableDataSource} from '@angular/material/table';
-import {MatSort, Sort, MatSortModule} from '@angular/material/sort';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
+import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
@@ -35,7 +34,7 @@ export class CoursesComponent {
   displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'Lägg till'];
   
   constructor(private courseservice: FetchcoursesService, private saveCourse: SaveCourseService, 
-    private _snackBar: MatSnackBar, private _liveAnnouncer: LiveAnnouncer){}
+    private _snackBar: MatSnackBar){}
   
   
   ngOnInit() {
@@ -58,6 +57,9 @@ export class CoursesComponent {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   } 
+
+  //Sorting
+  @ViewChild(MatSort) sort!: MatSort;
   
   //Sökfunktionen
   courseSearch():void{
@@ -120,16 +122,6 @@ export class CoursesComponent {
     this._snackBar.open(message + " har lagts till", "X", {
     duration: this.durationInSeconds
   });
-  }
-}
-
-//Sorting
-@ViewChild(MatSort) sort!: MatSort;
-announceSortChange(sortState: Sort) {
-  if (sortState.direction) {
-    this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-  } else {
-    this._liveAnnouncer.announce('Sorting cleared');
   }
 }
 }
