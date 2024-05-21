@@ -28,8 +28,6 @@ export class CoursesComponent {
   //Properties
   courses: Course[] = [];
   searchedCourses: Course[] = [];
-  searchCourse: string = "";
-  ascending: boolean = true;
   selected = '';
   displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'Lägg till'];
   
@@ -62,6 +60,7 @@ export class CoursesComponent {
   @ViewChild(MatSort) sort!: MatSort;
   
   //Sökfunktionen
+  searchCourse: string = "";
   courseSearch():void{
     this.searchedCourses = this.courses.filter((course)=>
       course.courseCode.toLowerCase().includes(this.searchCourse.toLowerCase()) ||

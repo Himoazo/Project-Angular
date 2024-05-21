@@ -20,6 +20,7 @@ export class DiagramComponent {
 courseArr: Course [] = [];
 points : number = 0;
 displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'Ta bort'];
+
 dataSource = new MatTableDataSource(this.getSavedCourses());
 constructor(private saveCourse: SaveCourseService, private _snackBar: MatSnackBar){}
 
