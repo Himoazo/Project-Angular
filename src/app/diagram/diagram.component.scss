@@ -71,24 +71,27 @@ $light-text-color: white;
   .dataTable {
     width: 99%; 
     margin: 0 auto;
+    overflow-x: auto;
   }
   table {
     width: fit-content;
   }
-  .courseCodes, .subjects{
+  /* .courseCodes, .subjects{
     display: none;
-  } 
+  }  */
 }
 @media only screen and (max-width: 400px) {
   .dataTable {
     width: 99%; 
     margin: 0 auto;
+    overflow-x: auto;
   }
   table {
     width: fit-content;
   }
-  .courseCodes, .subjects, .syllabuses{
+  /* .courseCodes, .subjects, .syllabuses{
     display: none;
-  } 
+  }  */
+  
 }
 
