@@ -28,7 +28,7 @@ export class CoursesComponent {
   //Properties
   courses: Course[] = [];
   searchedCourses: Course[] = [];
-  selected = '';
+  
   displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'Lägg till'];
   
   constructor(private courseservice: FetchcoursesService, private saveCourse: SaveCourseService, 
@@ -79,6 +79,7 @@ export class CoursesComponent {
   }
 
   //Show courses with selected subject from menu
+  selected = "";
   selectedSub(): void{
     if(this.selected){
       this.searchedCourses = this.courses.filter(course => course.subject === this.selected);
@@ -96,7 +97,6 @@ export class CoursesComponent {
     //Check to prevent dublicates
     if(this.saveCourse.courseArr.some((item)=> item.courseCode === course.courseCode)){
       this.existingCourse = "Denna kurs är redan sparad";
-      console.log(this.existingCourse);
     }else{
       this.saveCourse.courseArr.push(course);
       this.saveCourse.saveCourse("savedCourses", JSON.stringify(this.saveCourse.courseArr));

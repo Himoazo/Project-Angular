@@ -19,7 +19,7 @@ export class AppComponent {
   @HostBinding('class')
   currentTheme: 'lightTheme' | 'darkTheme' = 'lightTheme';
 
-isDarkMode:boolean = false; 
+ 
 
 // laddar tema från sessionStorage
 ngOnInit() {
@@ -36,6 +36,7 @@ ngOnInit() {
 }
 
 // Darl/Light theme Switch
+isDarkMode:boolean = false;
 themeSwitch() {
     this.isDarkMode=!this.isDarkMode;
     if(this.isDarkMode){
